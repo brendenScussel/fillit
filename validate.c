@@ -1,5 +1,29 @@
 #include "fillit.h"
 
+void	valid3(const char *p)
+{
+	t_var	c;
+
+	c.i = 0;
+	while (p != '\0')
+	{
+		c.d = 0;
+		c.nl = 0;
+		while (c.nl != 4)
+		{
+			(p[c.i] == '.') ? c.d++ : 0;
+			(p[c.i] == '\n' || p[c.i] == '\0') ? c.nl++ : 0;
+			if ((c.nl == 4) && (c.d != 12))
+				end_prg("ERROR");
+			c.i++;
+		}
+		if (p[c.i] == '\0')
+			break ;
+		c.i++;
+	}
+	return ;
+}
+
 /*
 ** check if the tetriminos are valid
 */
@@ -48,7 +72,6 @@ void		valid1(char *p, int rd, int *np)
 		if (p[c.i] != '.' && p[c.i] != '#' && \
 		p[c.i] != '\n' && p[c.i] != '\0')
 			end_prg("ERROR");
-		(p[c.i] == '.') ? c.d++ : 0;
 		c.i++;
 		if (c.i == c.j)
 		{
@@ -58,5 +81,5 @@ void		valid1(char *p, int rd, int *np)
 			np[0]++;
 		}
 	}
-	(c.d != 12 * np[0]) ? end_prg("ERROR") : 0;
+	valid3(p);
 }
