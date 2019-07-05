@@ -14,7 +14,8 @@ void	valid3(const char *p)
 			(p[c.i] == '.') ? c.d++ : 0;
 			(p[c.i] == '\n' || p[c.i] == '\0') ? c.nl++ : 0;
 			if ((c.nl == 4) && (c.d != 12))
-				end_prg("ERROR");
+				err_prog("", 1, "ERROR valid3");
+			//	end_prg("ERROR");
 			c.i++;
 		}
 		if (p[c.i] == '\0')
@@ -52,7 +53,8 @@ void	valid2(const char *p, int start, int end)
 	if (t.j == 6 || t.j == 8)
 		return ;
 	else
-		end_prg("ERROR");
+		err_prog("", 1, "ERROR valid2");
+	//	end_prg("ERROR");
 }
 
 /*
@@ -71,7 +73,8 @@ void		valid1(char *p, int rd, int *np)
 	{
 		if (p[c.i] != '.' && p[c.i] != '#' && \
 		p[c.i] != '\n' && p[c.i] != '\0')
-			end_prg("ERROR");
+			err_prog("", 1, "ERROR valid1");
+		//	end_prg("ERROR");
 		c.i++;
 		if (c.i == c.j)
 		{
