@@ -1,27 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 17:48:19 by bscussel          #+#    #+#             */
+/*   Updated: 2019/07/05 18:17:56 by bscussel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 void		gen_lst(t_tet **tetriminos, char *arg, int np)
 {
-    t_var   g;
-    char    *tmp;
-    char    alph;
+	t_var		g;
+	char		*tmp;
+	char		alph;
 
-    g.i = 0;
-    g.j = 0;
-    alph = 'A';
-    while (g.i < np)
-    {
+	g.i = 0;
+	g.j = 0;
+	alph = 'A';
+	while (g.i < np)
+	{
 		tmp = ft_strsub(arg, g.j, 20);
-    	gen_piece(tetriminos, tmp, alph++);
-        ft_strdel(&tmp);
-        g.j += 21;
-        g.i++;
-    }
+		gen_piece(tetriminos, tmp, alph++);
+		ft_strdel(&tmp);
+		g.j += 21;
+		g.i++;
+	}
 }
 
 void		read_file(char **argv, char **pieces, int *np)
 {
-	t_var			c;
+	t_var		c;
 
 	c.fd = open(argv[1], O_RDONLY);
 	pieces[0] = ft_strnew(BUFF_SIZE + 1);
@@ -37,11 +49,11 @@ void		read_file(char **argv, char **pieces, int *np)
 
 int		main(int argc, char **argv)
 {
-	char			*arg;
-	int				np[1];
-	t_tet			*tetriminos;
-	char			**board;
-	int				board_size;
+	char		*arg;
+	int			np[1];
+	t_tet		*tetriminos;
+	char		**board;
+	int			board_size;
 
 	arg = ft_strnew(BUFF_SIZE);
 	tetriminos = NULL;
@@ -61,7 +73,7 @@ int		main(int argc, char **argv)
 	ft_putstr("\n_______________\n");
 	(np[0] > 26) ? err_prog(argv[0], 1, "ERROR too many pieces") : 0;
 	ft_putstr(arg);
-
+	
 	end_prog("SUCCESSFULL TERMINATION");
 	return (0);
 }
