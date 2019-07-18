@@ -6,7 +6,7 @@
 /*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 16:52:13 by bscussel          #+#    #+#             */
-/*   Updated: 2019/07/05 17:38:24 by bscussel         ###   ########.fr       */
+/*   Updated: 2019/07/17 18:18:12 by bscussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void        ft_pushback(t_tet **begin_list, char **piece, char alph, int *xy);
 char		**make_board(int board_size);
 void        print_board(char **board, int board_size);
 void        free_board(char **board, int board_size);
+void		solve(t_tet *list, char **board, int size);
 
 #endif

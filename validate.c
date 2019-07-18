@@ -1,25 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 18:07:00 by bscussel          #+#    #+#             */
-/*   Updated: 2019/07/05 18:17:45 by bscussel         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fillit.h"
-
-/*
- * count for correct number of '.' per 4 '#'
-*/
 
 void	valid3(const char *p)
 {
 	t_var	c;
-	
+
 	c.i = 0;
 	while (p != '\0')
 	{
@@ -31,6 +15,7 @@ void	valid3(const char *p)
 			(p[c.i] == '\n' || p[c.i] == '\0') ? c.nl++ : 0;
 			if ((c.nl == 4) && (c.d != 12))
 				err_prog("", 1, "ERROR valid3");
+			//	end_prg("ERROR");
 			c.i++;
 		}
 		if (p[c.i] == '\0')
@@ -41,7 +26,7 @@ void	valid3(const char *p)
 }
 
 /*
- * check if tetriminos are valid shape
+** check if the tetriminos are valid
 */
 
 void	valid2(const char *p, int start, int end)
@@ -69,10 +54,11 @@ void	valid2(const char *p, int start, int end)
 		return ;
 	else
 		err_prog("", 1, "ERROR valid2");
+	//	end_prg("ERROR");
 }
 
 /*
- * check for false characters.
+** check for false characters.
 */
 
 void		valid1(char *p, int rd, int *np)
@@ -88,6 +74,7 @@ void		valid1(char *p, int rd, int *np)
 		if (p[c.i] != '.' && p[c.i] != '#' && \
 		p[c.i] != '\n' && p[c.i] != '\0')
 			err_prog("", 1, "ERROR valid1");
+		//	end_prg("ERROR");
 		c.i++;
 		if (c.i == c.j)
 		{

@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   board_functions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/18 11:08:43 by bscussel          #+#    #+#             */
+/*   Updated: 2019/07/18 11:15:33 by bscussel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-void        free_board(char **board, int board_size)
+void		free_board(char **board, int board_size)
 {
-    int     i;
+	int		i;
 
-    i = 0;
-    while (i < board_size)
-    {
-        free(board[i]);
-        i++;
-    }
-    free(*board);
+	i = 0;
+	while (i < board_size)
+	{
+		free(board[i]);
+		i++;
+	}
+	free(board);
 }
 
-void        print_boad(char **board, int board_size)
+void		print_board(char **board, int board_size)
 {
-    int     i;
+	int		i;
 
-    i = 0;
-    while(i < board_size)
+	i = 0;
+	while(i < board_size)
 	{
 		ft_putstr(board[i]);
 		ft_putchar('\n');
