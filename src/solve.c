@@ -6,15 +6,11 @@
 /*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 17:58:05 by bscussel          #+#    #+#             */
-/*   Updated: 2019/07/17 18:15:56 by bscussel         ###   ########.fr       */
+/*   Updated: 2019/07/20 21:19:43 by bscussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-** remove previously placed piece
-*/
 
 void		go_back(char **board, t_tet *list, int *xy)
 {
@@ -36,10 +32,6 @@ void		go_back(char **board, t_tet *list, int *xy)
 		y++;
 	}
 }
-
-/*
-** set piece in allocated space
-*/
 
 void		add_piece(char **board, t_tet *list, int *xy)
 {
@@ -64,11 +56,7 @@ void		add_piece(char **board, t_tet *list, int *xy)
 	}
 }
 
-/*
-** check space for overlap, if no overlap exists, add piece
-*/
-
-int			safe_check(char **board, t_tet *list, int *xy) 
+int			safe_check(char **board, t_tet *list, int *xy)
 {
 	int		x;
 	int		y;
@@ -91,12 +79,6 @@ int			safe_check(char **board, t_tet *list, int *xy)
 	return (0);
 }
 
-/*
-** locate the area where a piece will be placed
-** location shifts up each loop, true or false return
-**      this is allows pieces to be placed and replaced
-*/
-
 int			free_space_check(char **board, int size, t_tet *list)
 {
 	int		xy[2];
@@ -111,10 +93,6 @@ int			free_space_check(char **board, int size, t_tet *list)
 		{
 			if (safe_check(board, list, xy) == 0)
 			{
-                
-                (list->next != NULL) ? print_board(board, size) : 0;
-                ft_putchar('\n');
-				
 				if (free_space_check(board, size, list->next) == 0)
 					return (0);
 				else

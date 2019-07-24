@@ -6,17 +6,11 @@
 /*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 11:15:59 by bscussel          #+#    #+#             */
-/*   Updated: 2019/07/18 12:50:58 by bscussel         ###   ########.fr       */
+/*   Updated: 2019/07/21 15:57:59 by bscussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-** from the given piece
-**      skip forward until the minimum x value is reached
-**      copy until the maxium x value is reached
-*/
 
 char		*gen_line(char *p_given, int *min_max, int xy)
 {
@@ -39,25 +33,20 @@ char		*gen_line(char *p_given, int *min_max, int xy)
 	return (tmp);
 }
 
-/*
-** min_max[0] = first '#'. min = i
-** if p[i] = '#'. line_count = i. if line_count < min_max[0]. min_max[0] = line_count.
-** min_max[1] = last '#'. max = i
-*/
-
 void		get_mn(char *piece, int *mn_mx)
 {
 	int		i;
 	int		count;
+
 	mn_mx[0] = 0;
 	mn_mx[1] = 0;
-
 	i = 0;
 	count = 0;
 	while (piece[i] != '\0')
 	{
 		if (count == 0 && piece[i] == '#')
 		{
+			mn_mx[0] = 0;
 			return ;
 		}
 		if (piece[i] == '#')
@@ -71,15 +60,10 @@ void		get_mn(char *piece, int *mn_mx)
 	}
 }
 
-/* 
-** determine the height (y) and width (x) of the 2d array
-** needed for each piece.
-*/
-
-void        get_ht_wd(char *p, int *xy)
+void		get_ht_wd(char *p, int *xy)
 {
-	int   i;
-	
+	int		i;
+
 	i = 0;
 	xy[0] = 0;
 	xy[1] = 0;
@@ -101,20 +85,13 @@ void        get_ht_wd(char *p, int *xy)
 	}
 }
 
-/*
-** the address of tetriminos, the given piece, the attributing character.
-** get height and width of given piece
-** while 'i' is less than the height value
-**      generate the line of the 2d array
-*/
-
-void        gen_piece(t_tet **tetriminos, char *p_given, char alph)
+void		gen_piece(t_tet **tetriminos, char *p_given, char alph)
 {
 	int		i;
 	int		xy[2];
 	int		min_max[2];
 	char	**piece;
-	
+
 	i = 0;
 	get_ht_wd(p_given, xy);
 	get_mn(p_given, min_max);
@@ -126,5 +103,4 @@ void        gen_piece(t_tet **tetriminos, char *p_given, char alph)
 		i++;
 	}
 	ft_pushback(tetriminos, piece, alph, xy);
-	ft_putchar(alph);
 }

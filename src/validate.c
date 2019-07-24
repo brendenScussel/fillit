@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/18 17:30:46 by bscussel          #+#    #+#             */
+/*   Updated: 2019/07/20 21:06:17 by bscussel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 void	valid3(const char *p)
@@ -14,8 +26,7 @@ void	valid3(const char *p)
 			(p[c.i] == '.') ? c.d++ : 0;
 			(p[c.i] == '\n' || p[c.i] == '\0') ? c.nl++ : 0;
 			if ((c.nl == 4) && (c.d != 12))
-				err_prog("", 1, "ERROR valid3");
-			//	end_prg("ERROR");
+				err_prog("", 1, "error");
 			c.i++;
 		}
 		if (p[c.i] == '\0')
@@ -24,10 +35,6 @@ void	valid3(const char *p)
 	}
 	return ;
 }
-
-/*
-** check if the tetriminos are valid
-*/
 
 void	valid2(const char *p, int start, int end)
 {
@@ -53,15 +60,10 @@ void	valid2(const char *p, int start, int end)
 	if (t.j == 6 || t.j == 8)
 		return ;
 	else
-		err_prog("", 1, "ERROR valid2");
-	//	end_prg("ERROR");
+		err_prog("", 1, "error");
 }
 
-/*
-** check for false characters.
-*/
-
-void		valid1(char *p, int rd, int *np)
+void	valid1(char *p, int rd, int *np)
 {
 	t_var	c;
 
@@ -73,8 +75,7 @@ void		valid1(char *p, int rd, int *np)
 	{
 		if (p[c.i] != '.' && p[c.i] != '#' && \
 		p[c.i] != '\n' && p[c.i] != '\0')
-			err_prog("", 1, "ERROR valid1");
-		//	end_prg("ERROR");
+			err_prog("", 1, "error");
 		c.i++;
 		if (c.i == c.j)
 		{

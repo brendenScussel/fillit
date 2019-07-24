@@ -6,7 +6,7 @@
 /*   By: bscussel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 11:08:43 by bscussel          #+#    #+#             */
-/*   Updated: 2019/07/18 11:15:33 by bscussel         ###   ########.fr       */
+/*   Updated: 2019/07/20 21:04:33 by bscussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		print_board(char **board, int board_size)
 	int		i;
 
 	i = 0;
-	while(i < board_size)
+	while (i < board_size)
 	{
 		ft_putstr(board[i]);
 		ft_putchar('\n');

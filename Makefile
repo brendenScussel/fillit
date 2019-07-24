@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: bscussel <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/07/05 17:38:05 by bscussel          #+#    #+#              #
-#    Updated: 2019/07/05 17:38:09 by bscussel         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = fillit
 
 CC = gcc
@@ -18,7 +6,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADER = fillit.h
 
-CFILES = *.c
+CFILES = ./src/main.c \
+			./src/board_functions.c \
+			./src/gen_piece.c \
+			./src/ft_pushback.c \
+			./src/solve.c \
+			./src/validate.c \
 
 OFILES = *.o
 
